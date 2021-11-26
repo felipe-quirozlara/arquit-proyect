@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pages.views import home_page, doctores, confirmacion, cancelar_page, confirm_cancelar
 
 urlpatterns = [
+    path('', home_page, name="home_page"),
+    path('doctores/<str:pk>', doctores, name="doctores_pages"),
+    path('confirmacion/<str:pk>', confirmacion, name="confirmacion_page"),
+    path('cancelar/', cancelar_page, name="cancelar_page"),
+    path('confirmacion/cancelar/<str:pk>', confirm_cancelar, name="confirm_cancelar_page"),
+
     path('admin/', admin.site.urls),
 ]

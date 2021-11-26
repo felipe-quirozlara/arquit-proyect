@@ -93,5 +93,9 @@ class Hora(models.Model):
     disponible = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.medico.nombre + ' ' + self.medico.p_apellido + ' ' + str(self.fecha))
+        return str(self.medico.nombre + ' ' + self.medico.p_apellido + ' ' + str(self.fecha)+ ' ' + str(self.hora_inicio))
 
+class Cita(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.SET_NULL, null=True, blank=True)
+    hora = models.ForeignKey(Hora, on_delete=models.SET_NULL, null=True, blank=True)
+    habilitada = models.BooleanField(default=True)

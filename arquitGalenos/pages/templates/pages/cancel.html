@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="POST" name="busqueda">
+        {% csrf_token %}
+
+        <label for="rut">Rut del paciente</label>
+        <input type="text" name="rut">
+
+        <input type="submit" value="Buscar">
+    </form>
+    
+    {% for cita in citas%}
+        <div>
+            <p>Médico: {{cita.hora.medico}}</p>
+            <p>Fecha: {{cita.hora.fecha}}</p>
+            <p>Hora: {{cita.hora.hora_inicio}}</p>
+            <p>Especialidad: {{cita.hora.medico.get_especialidad_display}}</p>
+            <a href="{% url 'confirm_cancelar_page' cita.id %}">Cancelar</a>
+            <hr>
+           
+        </div>
+        
+    {%endfor%}
+
+</body>
+</html>

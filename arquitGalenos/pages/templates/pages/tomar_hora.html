@@ -1,0 +1,25 @@
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <select name="especialidad" id="especialidad">
+            <option value="FM">FAMILIAR</option>
+            <option value="PD">PEDIATRIA</option>
+            <option value="IN">INTERNA</option>
+            <option value="SQ">PSIQUIATRIA</option>
+            <option value="OP">ORTOPEDIA</option>
+            <option value="OF">OFTALMOLOGIA</option>
+            <option value="GN">GENERAL</option>
+            <option value="DT">DERMATOLOGIA</option>
+            <option value="CD">CARDIOLOGIA</option>
+        </select>
+        <input type="submit" value="ver">
+    </form>
+
+    <a href="{% url 'cancelar_page' %}">Cancelar Hora</a>
+</div>
+</main>
+{% endblock %}
