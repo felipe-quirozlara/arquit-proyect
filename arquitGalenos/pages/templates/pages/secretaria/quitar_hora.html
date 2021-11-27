@@ -1,26 +1,28 @@
-{%extends 'pages/base.html'%}
-{%load static%}
-{% block content%}
+{%extends 'pages/base.html'%} {%load static%} {% block content%}
 <main>
-<div>
-    <h1>Quitar Hora</h1>
-    <form method="POST">
-        {% csrf_token %}
-
-        {%for doc in doctores%}
-            <p>{{doc.doctor}}</p>
+    <div class="border">
+        <div class="head">
+            <h1>Quitar Hora</h1>
+        </div>
+        <form method="POST">
+            {% csrf_token %} {%for doc in doctores%}
+            <div class="nomdoc">
+                <h3>{{doc.doctor}}</h3>
+            </div>
             {%for key,horas in doc.horas.items%}
-            <b>{{key}}</b> 
-                <div>
-                    {%for hr in horas%}
-                        <input type="radio" id={{hr.id}} name="hora" value="{{hr.id}}"></input>
-                        <label for="{{hr.fecha}}">{{hr.hora_inicio}}</label>
-                    {%endfor%}
-                </div>
-            {%endfor%}
-        {%endfor%}
-        <input type="submit" value="Continuar">
-    </form>
-</div>
+            <div class="fecha">
+                <b>{{key}}</b>
+            </div>
+            <div class="horario">
+                {%for hr in horas%}
+                <input type="radio" id={{hr.id}} name="hora" value="{{hr.id}}"></input>
+                <label for="{{hr.fecha}}">{{hr.hora_inicio}}</label> {%endfor%}
+            </div>
+            {%endfor%} {%endfor%}
+            <div class="enviar">
+                <input type="submit" value="Continuar">
+            </div>
+        </form>
+    </div>
 </main>
 {% endblock %}

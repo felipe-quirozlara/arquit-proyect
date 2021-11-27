@@ -1,32 +1,32 @@
-.navbar{
+.navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background-color: #5176e5;
     padding: 20px 20px 20px;
-    color:white;
+    color: white;
 }
 
-.lis-items{
+.lis-items {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.nav-item{
+.nav-item {
     padding: 2px;
     margin-right: 5px;
     list-style-type: none;
 }
 
-.nav-title{
+.nav-title {
     text-decoration: none;
     color: white;
     font-size: 25px;
 }
 
-.btn-orange{
+.btn-orange {
     text-decoration: none;
     background-color: #FFAA40;
     color: white;
@@ -34,22 +34,21 @@
     border-radius: 5px;
 }
 
-.titulo{
+.titulo {
     font-size: 60px;
 }
 
-.hero{
+.hero {
     background-color: #5176e5;
     color: white;
 }
 
-.form-title{
+.form-title {
     font-size: 30px;
     color: #051547;
-
 }
 
-.select{
+.select {
     height: 3rem;
     width: 100%;
     border-radius: 5px;
@@ -57,7 +56,7 @@
     padding: 1% 2% 1%;
 }
 
-.btn-submit{
+.btn-submit {
     background-color: #051547;
     border: none;
     color: white;
@@ -67,63 +66,66 @@
     width: 90%;
 }
 
-.img{
+.img {
     width: 300px;
 }
 
-.head{
+.head {
     background-color: #051547;
     color: white;
     padding: 2%;
     font-size: 25px;
 }
 
-.border{
+.border {
     border-style: solid;
     border-width: 1px;
 }
-.radius{
+
+.radius {
     border-radius: 6px;
 }
 
-.doctor-name{
+.doctor-name {
     font-size: 25px;
     background-color: #5176e5;
     padding: 2% 1% 2%;
-    color:white;
+    color: white;
     margin-bottom: 10px;
 }
 
-.fecha-title{
+.fecha-title {
     font-size: 20px;
 }
 
-.hora-header{
+.hora-header {
     font-size: 30px;
 }
 
-.hora-title{
+.hora-title {
     font-size: 25px;
 }
 
-.hora-info{
+.hora-info {
     font-size: 20px;
     margin-left: 30px;
 }
+
+
 /* Contenedores */
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
 }
 
-.column > div{
+.column>div {
     padding: 2% 1% 4%;
 }
 
@@ -131,71 +133,112 @@
     display: flex;
     justify-content: center;
 }
-.form > * {
+
+.form>* {
     margin: 2%;
 }
 
+
 /* Espaciadores */
 
-.margin-l{
+.margin-l {
     margin: 20px;
 }
-.margin-child > *{
+
+.margin-child>* {
     padding: 2%;
 }
-.margin-child-s > *{
+
+.margin-child-s>* {
     padding: 1%;
 }
 
+.nomdoc {
+    padding-top: 1.5rem;
+    padding-left: 28px;
+    margin-bottom: 1.5rem;
+    font-size: 28px;
+}
+
+.fecha {
+    padding-left: 28px;
+    margin-bottom: 1.5rem;
+}
+
+.horario {
+    padding-left: 28px;
+    margin-bottom: 1.5rem;
+}
+
+.enviar {
+    padding-left: 28px;
+    margin-bottom: 1rem;
+}
+
+
 /* Estilos generales */
-main{
+
+main {
     padding: 3% 7% 3%;
 }
 
-*{
+h5 {
+    padding-left: 28px;
+    margin-bottom: 2.5rem;
+}
+
+* {
     margin: 0;
     padding: 0;
     font-size: 100%;
     vertical-align: baseline;
     max-width: 100%;
     font-family: 'Roboto';
-
 }
+
+.panel-primary .list-group-item.active {
+    color: #FFF;
+    background-color: #428BCA;
+    border-color: #428BCA;
+}
+
 
 /* radio button */
-label > input[type="radio"] {
-    display: none;
-  }
 
-label > input[type="radio"] + *::before {
-content: "";
-display: inline-block;
-vertical-align: bottom;
-width: 1rem;
-height: 1rem;
-margin-right: 0.3rem;
-border-radius: 50%;
-border-style: solid;
-border-width: 0.1rem;
-border-color: gray;
+label>input[type="radio"] {
+    display: none;
 }
 
-label > input[type="radio"]:checked + *::before {
+label>input[type="radio"]+*::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: gray;
+}
+
+label>input[type="radio"]:checked+*::before {
     background: radial-gradient(#5176e5 0%, #5176e5 40%, transparent 50%, transparent);
     border-color: #5176e5;
-  }
-label > input[type="radio"]:checked + * {
+}
+
+label>input[type="radio"]:checked+* {
     color: #5176e5;
-  }
+}
+
 
 /* Media q */
 
 @media only screen and (max-width: 768px) {
-    .row{
+    .row {
         flex-direction: column;
     }
-
-    .btn-submit{
+    .btn-submit {
         padding: 1%;
     }
 }
