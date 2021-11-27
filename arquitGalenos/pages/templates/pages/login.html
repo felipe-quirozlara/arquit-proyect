@@ -1,0 +1,16 @@
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="username">Nombre de usuario</label>
+        <input type="text" name="username">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password">
+        <input type="submit" value="Login">
+    </form>
+</div>
+</main>
+{% endblock %}

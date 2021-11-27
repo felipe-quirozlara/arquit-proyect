@@ -1,30 +1,44 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
 
-        {%for doc in doctores%}
-            <p>{{doc.doctor}}</p>
-            {%for key,horas in doc.horas.items%}
-            <b>{{key}}</b> 
-                <div>
-                    {%for hr in horas%}
-                        <input type="radio" id={{hr.id}} name="hora" value="{{hr.id}}"></input>
-                        <label for="{{hr.fecha}}">{{hr.hora_inicio}}</label>
-                    {%endfor%}
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+<div class="center-main">
+    <div class="border">
+        <div class="head">
+            <h1>Reservar Hora Médica</h1>
+        </div>
+        <div>
+            <form method="POST" class="form">
+                {% csrf_token %}
+                {%for doc in doctores%}
+                    <div class="border radius">
+                        <h1 class="doctor-name">{{doc.doctor.nombre}} {{doc.doctor.p_apellido}} {{doc.doctor.m_apellido}}</h1>
+                        <div class="margin-child">
+                        {%for key,horas in doc.horas.items%}
+                            <b class="fecha-title">{{key}}</b> 
+                            <div>
+                                {%for hr in horas%}
+                                    <label >
+                                        <input type="radio" id={{hr.id}} name="hora" value="{{hr.id}}"></input>
+                                        <span for="{{hr.fecha}}">{{hr.hora_inicio}}</span>
+                                    </label>
+                                {%endfor%}
+                            </div>
+                        {%endfor%}
+                        </div>
+                    </div>
+                {%endfor%}
+                <div class="center">
+                    <input type="submit" value="Continuar"  class="btn-submit">
+
                 </div>
-            {%endfor%}
-        {%endfor%}
-        <input type="submit" value="Continuar">
-    </form>
-    
-</body>
-</html>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+{% endblock %}
 

@@ -1,0 +1,24 @@
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main class="hero">
+    <div class="row ">
+        <div class="column">
+            <div>
+                <h1 class="titulo">Centro Médico Galenos</h1>
+            </div>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos alias aut, hic dolores reiciendis laboriosam! Adipisci hic modi accusantium reprehenderit?
+                </p>
+            </div>
+            <div >
+                <a href="{% url 'toma_hora_page' %}" class="btn-orange">Tomar Hora</a>
+            </div>
+        </div>
+        <div class="column margin-l">
+            <img class="img" src="https://via.placeholder.com/300x300" alt="">
+        </div>
+    </div>
+</main>
+{% endblock %}

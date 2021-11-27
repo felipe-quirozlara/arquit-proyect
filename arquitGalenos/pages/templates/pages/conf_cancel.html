@@ -1,12 +1,9 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-        <p>{{cita.hora.medico}}</p>
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    <p>{{cita.hora.medico}}</p>
         <p>{{cita.hora.fecha}}</p>
         <p>{{cita.hora.hora_inicio}}</p>
         <p>{{cita.paciente}}</p>
@@ -14,6 +11,6 @@
             {% csrf_token %}
             <input type="submit" value="Cancelar">
         </form>
-
-</body>
-</html>
+</div>
+</main>
+{% endblock %}

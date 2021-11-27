@@ -2,24 +2,34 @@
 {%load static%}
 {% block content%}
 <main>
-<div>
-    <form method="POST">
-        {% csrf_token %}
-        <select name="especialidad" id="especialidad">
-            <option value="FM">FAMILIAR</option>
-            <option value="PD">PEDIATRIA</option>
-            <option value="IN">INTERNA</option>
-            <option value="SQ">PSIQUIATRIA</option>
-            <option value="OP">ORTOPEDIA</option>
-            <option value="OF">OFTALMOLOGIA</option>
-            <option value="GN">GENERAL</option>
-            <option value="DT">DERMATOLOGIA</option>
-            <option value="CD">CARDIOLOGIA</option>
-        </select>
-        <input type="submit" value="ver">
-    </form>
+    <div class="center-main">
+        <div class="border">
+            <div class="head">
+                <h1>Reservar Hora Médica</h1>
+            </div>
+            <div>
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    <div>
+                        <select name="especialidad" id="especialidad" class="select">
+                            <option value="FM" class="option">FAMILIAR</option>
+                            <option value="PD">PEDIATRIA</option>
+                            <option value="IN">INTERNA</option>
+                            <option value="SQ">PSIQUIATRIA</option>
+                            <option value="OP">ORTOPEDIA</option>
+                            <option value="OF">OFTALMOLOGIA</option>
+                            <option value="GN">GENERAL</option>
+                            <option value="DT">DERMATOLOGIA</option>
+                            <option value="CD">CARDIOLOGIA</option>
+                        </select>
+                    </div>
+                    <div class="center">
+                        <input type="submit" value="Aceptar" class="btn-submit">
 
-    <a href="{% url 'cancelar_page' %}">Cancelar Hora</a>
-</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock %}

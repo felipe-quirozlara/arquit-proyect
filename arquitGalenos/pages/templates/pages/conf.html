@@ -1,23 +1,53 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
-    <h2>Médico: {{hora.medico.nombre}} {{hora.medico.p_apellido}} {{hora.medico.m_apellido}}</h2>
-    <h2>Fecha: {{hora.fecha}}</h2>
-    <h2>Hora: {{hora.hora_inicio}}</h2>
-    <h3>Informacion Personal</h3>
-    <form method="POST">
-        {% csrf_token %}
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    
+    <div class="center-main">
+        <div class="border">
+            <div class="head">
+                <h1>Reservar Hora Médica</h1>
+            </div>
+            <div>
+                <div class="margin-child-s">
+                    <h1 class="hora-header">Información Cita</h1>
+                    <h2 class="hora-title">Médico:</h2>
+                        <p class="hora-info">{{hora.medico.nombre}} {{hora.medico.p_apellido}} {{hora.medico.m_apellido}}</p>
+                    <h2 class="hora-title">Fecha:</h2>
+                        <p class="hora-info">{{hora.fecha}}</p>
+                    <h2 class="hora-title">Hora:</h2>
+                        <p class="hora-info">{{hora.hora_inicio}}</p>
+                </div>
+                <form method="POST" class="form">
+                    <h1 class="hora-header">Información Personal</h1>
+                    {% csrf_token %}
+                    
+                    <div class="column margin-child-s">
+                        <label class="hora-info" for="{{form.nombre.label}}">Nombre</label>
+                        {{form.nombre}}
+                        <label class="hora-info" for="{{form.p_apellido.label}}">Apellido Paterno</label>
+                        {{form.p_apellido}}
+                        <label class="hora-info" for="{{form.m_apellido.label}}">Apellido Materno</label>
+                        {{form.m_apellido}}
+                        <label class="hora-info" for="{{form.rut.label}}">RUT</label>
+                        {{form.rut}}
+                        <label class="hora-info" for="{{form.correo.label}}">Correo</label>
+                        {{form.correo}}
+                        <label class="hora-info" for="{{form.fecha_nacimiento.label}}">Fecha nacimiento</label>
+                        {{form.fecha_nacimiento}}
+                        <label class="hora-info" for="{{form.sexo.label}}">Sexo</label>
+                        {{form.sexo}}
+                    </div>
+                    <div class="center">
+                        <input type="submit" value="Confirmar" class="btn-submit">
 
-        {{form.as_p}}
-        <input type="submit" value="Confirmar">
-    </form>
-    
-    
-</body>
-</html>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock %}

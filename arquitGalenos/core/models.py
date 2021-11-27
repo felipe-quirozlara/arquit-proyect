@@ -55,14 +55,9 @@ class Disponibilidad(models.Model):
     medico = models.OneToOneField(Medico, null=True, on_delete=models.CASCADE)
     hora_inicio = models.TimeField()
     hora_fin = models.TimeField()
-    colaccion_inicio = models.TimeField()
-    colaccion_fin = models.TimeField()
-
 
     def __str__(self):
         return str(self.medico)
-
-   
 
     def save(self, *args, **kwargs):
 

@@ -15,14 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import home_page, doctores, confirmacion, cancelar_page, confirm_cancelar
+from pages.views import *
 
 urlpatterns = [
     path('', home_page, name="home_page"),
+    path('hora/', toma_hora_page, name="toma_hora_page"),
     path('doctores/<str:pk>', doctores, name="doctores_pages"),
     path('confirmacion/<str:pk>', confirmacion, name="confirmacion_page"),
     path('cancelar/', cancelar_page, name="cancelar_page"),
     path('confirmacion/cancelar/<str:pk>', confirm_cancelar, name="confirm_cancelar_page"),
+    path('secretaria/', secretaria_page, name="secretaria_page" ),
+    path('secretaria/agregar/hora', agregar_hora_page, name="agregar_hora_page" ),
+    path('secretaria/agregar/medico', agregar_medico_page, name="agregar_medico_page" ),
+    path('secretaria/agregar/disponibilidad', agregar_disponibilidad_page, name="agregar_disponibilidad_page" ),
 
+
+
+    path('secretaria/quitar/hora', quitar_hora_page, name="quitar_hora_page" ),
+
+
+    path('logout/', logout_user, name='logout_user'),
+    path('login/', login_page, name='login_page'),
     path('admin/', admin.site.urls),
 ]

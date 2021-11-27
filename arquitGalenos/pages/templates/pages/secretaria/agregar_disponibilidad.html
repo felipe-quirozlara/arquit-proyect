@@ -1,0 +1,14 @@
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    <h1>Agregar Hora</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Agregar">
+    </form>
+</div>
+</main>
+{% endblock %}

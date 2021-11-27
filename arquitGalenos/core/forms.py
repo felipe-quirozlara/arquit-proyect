@@ -9,3 +9,19 @@ class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
         fields = '__all__'
+
+class HoraForm(forms.ModelForm):
+    class Meta:
+        model = Hora
+        fields = ['medico', 'hora_inicio', 'fecha']
+
+class MedicoForm(forms.ModelForm):
+    class Meta:
+        model = Medico
+        fields = '__all__'
+
+class DisponibilidadForm(forms.ModelForm):
+    class Meta:
+        model = Disponibilidad
+        fields = '__all__'
+
