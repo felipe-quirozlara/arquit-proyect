@@ -2,28 +2,47 @@
 {%load static%}
 {% block content%}
 <main>
-    <div>
-        <form method="POST" name="busqueda">
-            {% csrf_token %}
     
-            <label for="rut">Rut del paciente</label>
-            <input type="text" name="rut">
-    
-            <input type="submit" value="Buscar">
-        </form>
-        
-        {% for cita in citas%}
-            <div>
-                <p>Médico: {{cita.hora.medico}}</p>
-                <p>Fecha: {{cita.hora.fecha}}</p>
-                <p>Hora: {{cita.hora.hora_inicio}}</p>
-                <p>Especialidad: {{cita.hora.medico.get_especialidad_display}}</p>
-                <a href="{% url 'confirm_cancelar_page' cita.id %}">Cancelar</a>
-                <hr>
-               
+    <div class="center-main">
+        <div class="border">
+            <div class="head">
+                <h1>Cancelar Cita</h1>
             </div>
-            
-        {%endfor%}
+            <div>
+                <div>
+                    <form method="POST" name="busqueda" class="form">
+                        {% csrf_token %}
+                        <div class="column margin-child-s center">
+                            <label class="hora-info" for="rut">Rut del paciente</label>
+                            <input type="text" name="rut">
+                            
+                        </div>
+                        <div class="center">
+                            <input type="submit" value="Buscar" class="btn-submit">
+                        </div>
+                        
+                    </form>
+                    
+                    {% for cita in citas%}
+
+                        <div class="border margin-l">
+                            <h2 class="hora-title">Médico:</h2>
+                                <p class="hora-info">{{cita.hora.medico.nombre}} {{cita.hora.medico.p_apellido}} {{cita.hora.medico.m_apellido}}</p>
+                            <h2 class="hora-title">Especialidad:</h2>
+                                <p class="hora-info">{{cita.hora.medico.get_especialidad_display}}</p>
+                            <h2 class="hora-title">Fecha:</h2>
+                                <p class="hora-info">{{cita.hora.fecha}}</p>
+                            <h2 class="hora-title">Hora:</h2>
+                                <p class="hora-info">{{cita.hora.hora_inicio}}</p>
+                            <div class="center margin-s btn-red">
+                                <a href="{% url 'confirm_cancelar_page' cita.id %}" class="">Cancelar</a>
+                            </div>
+                        </div>
+                        
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 {% endblock %}

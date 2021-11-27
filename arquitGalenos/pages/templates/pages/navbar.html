@@ -4,8 +4,11 @@
     </div>
     <div class="menu">
         <ul class="lis-items">
-            <li class="nav-item">Inicio</li>
-            <li class="nav-item">Tomar Hora</li>
+            <a href="{% url 'home_page' %}" class="nav-item"><li>Inicio</li></a>
+            <a href="{% url 'toma_hora_page' %}" class="nav-item"><li>Tomar Cita</li></a>
+            <a href="{% url 'cancelar_page' %}" class="nav-item"><li>Cancelar Cita</li></a>
+            <a href="{% url 'login_page' %}" class="nav-item"><li>Login</li></a>
+
         </ul>
     </div>
 </nav>

@@ -59,6 +59,8 @@ class Disponibilidad(models.Model):
     def __str__(self):
         return str(self.medico)
 
+
+
     def save(self, *args, **kwargs):
 
         fecha = datetime.date.today()

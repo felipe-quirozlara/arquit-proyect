@@ -12,12 +12,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
 
 .nav-item{
     padding: 2px;
     margin-right: 5px;
     list-style-type: none;
+    text-decoration: none;
+    color: white;
 }
 
 .nav-title{
@@ -26,13 +29,7 @@
     font-size: 25px;
 }
 
-.btn-orange{
-    text-decoration: none;
-    background-color: #FFAA40;
-    color: white;
-    padding: 1rem 3rem 1rem;
-    border-radius: 5px;
-}
+
 
 .titulo{
     font-size: 60px;
@@ -57,15 +54,7 @@
     padding: 1% 2% 1%;
 }
 
-.btn-submit{
-    background-color: #051547;
-    border: none;
-    color: white;
-    padding: 2% 4% 2%;
-    border-radius: 5px;
-    display: block;
-    width: 90%;
-}
+
 
 .img{
     width: 300px;
@@ -139,6 +128,11 @@
 
 .margin-l{
     margin: 20px;
+    padding: 2%;
+}
+.margin-s{
+    margin: 1%;
+    padding: 1%;
 }
 .margin-child > *{
     padding: 2%;
@@ -160,6 +154,49 @@ main{
     max-width: 100%;
     font-family: 'Roboto';
 
+}
+/* botones */
+
+.btn-orange{
+    text-decoration: none;
+    background-color: #FFAA40;
+    color: white;
+    padding: 1rem 3rem 1rem;
+    border-radius: 5px;
+}
+.btn-orange:hover{
+    background-color: #f7ad52;
+}
+.btn-submit{
+    background-color: #051547;
+    border: none;
+    color: white;
+    padding: 2% 4% 2%;
+    border-radius: 5px;
+    display: block;
+    width: 90%;
+}
+
+.btn-submit:hover{
+    background-color: #0e2a80;
+}
+
+.btn-red{
+    background-color: #ff7640;
+    display: block;
+    width: 90%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 5px;
+}
+.btn-red>a{
+    text-decoration: none;
+    color: white;
+
+}
+.btn-red:hover{
+    background-color: #fc8b5f;
 }
 
 /* radio button */
@@ -197,5 +234,8 @@ label > input[type="radio"]:checked + * {
 
     .btn-submit{
         padding: 1%;
+    }
+    .menu{
+        display: none;
     }
 }

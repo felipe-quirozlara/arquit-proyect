@@ -5,7 +5,7 @@
     <div class="center-main">
         <div class="border">
             <div class="head">
-                <h1>Reservar Hora Médica</h1>
+                <h1>Reservar Cita Médica</h1>
             </div>
             <div>
                 <form method="POST" class="form">
@@ -30,8 +30,9 @@
                 </form>
             </div>
         </div>
-        <a href="{% url 'cancelar_page'%}">Cancelar Hora</a>
-
+        <div class="center">
+            <a href="{% url 'cancelar_page'%}">Cancelar Cita</a>
+        </div>
     </div>
 </main>
 {% endblock %}

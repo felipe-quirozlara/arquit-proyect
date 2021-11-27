@@ -2,13 +2,36 @@
 {%load static%}
 {% block content%}
 <main>
-<div>
-    <h1>Agregar Hora</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Agregar">
-    </form>
+<div class="center-main">
+    <div class="border">
+        <div class="head">
+            <h1>Agregar Médico</h1>
+        </div>
+        <div>
+            <form method="POST" class="form">
+                {% csrf_token %}
+                <div class="column margin-child-s">
+                    <label class="hora-info" for="{{form.nombre.label}}">Nombre</label>
+                    {{form.nombre}}
+                    <label class="hora-info" for="{{form.p_apellido.label}}">Apellido Paterno</label>
+                    {{form.p_apellido}}
+                    <label class="hora-info" for="{{form.m_apellido.label}}">Apellido Materno</label>
+                    {{form.m_apellido}}
+                    <label class="hora-info" for="{{form.rut.label}}">RUT</label>
+                    {{form.rut}}
+                    <label class="hora-info" for="{{form.correo.label}}">Correo</label>
+                    {{form.correo}}
+                    <label class="hora-info" for="{{form.especialidad.label}}">Especialidad</label>
+                    {{form.especialidad}}
+ 
+                </div>
+                <div class="center">
+                    <input type="submit" value="Continuar"  class="btn-submit">
+
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 </main>
 {% endblock %}
