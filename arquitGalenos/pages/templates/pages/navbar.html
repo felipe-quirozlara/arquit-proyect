@@ -1,3 +1,5 @@
+{% load poll_extras %}
+
 <nav class="navbar">
     <div class="logo">
         <a href="{% url 'home_page' %}" class="nav-title"><h2>Centro Médico Galenos</h2></a>
@@ -7,7 +9,17 @@
             <a href="{% url 'home_page' %}" class="nav-item"><li>Inicio</li></a>
             <a href="{% url 'toma_hora_page' %}" class="nav-item"><li>Tomar Cita</li></a>
             <a href="{% url 'cancelar_page' %}" class="nav-item"><li>Cancelar Cita</li></a>
-            <a href="{% url 'login_page' %}" class="nav-item"><li>Login</li></a>
+            {%if user.is_authenticated %}
+                {% if user|is_group:"secretaria"%}
+                    <a href="{% url 'secretaria_page' %}" class="nav-item"><li>Secretaria</li></a>
+
+                {% endif %}
+            <a href="{% url 'logout_user' %}" class="nav-item"><li>Logout</li></a>
+
+            {%else%}
+                <a href="{% url 'login_page' %}" class="nav-item"><li>Login</li></a>
+
+            {% endif %}
 
         </ul>
     </div>
