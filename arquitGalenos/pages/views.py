@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from core.models import Medico, Hora, Cita, Paciente
-from core.forms import PacienteForm, HoraForm, MedicoForm, DisponibilidadForm
+from core.forms import PacienteForm, HoraForm, MedicoForm, DisponibilidadForm, CitaForm
 from core.decorators import usuarios_permitiado, usuario_identificado
 from datetime import *
 # Create your views here.
@@ -20,6 +20,8 @@ def toma_hora_page(request):
     if request.method == "POST":
         b = request.POST['especialidad']
         return redirect('doctores_pages', pk=b)
+    else:
+        print("error")
     
 
     return render(request,'pages/tomar_hora.html', context)
@@ -49,6 +51,8 @@ def doctores(request, pk):
     if request.method == "POST":
         pk = request.POST["hora"]
         return redirect('confirmacion_page', pk=pk)
+    else:
+        print("error")
 
     return render(request,'pages/docts.html', context)
 
@@ -80,7 +84,10 @@ def confirmacion(request, pk):
                     hora = hora
                 )
                 return redirect('home_page')
-
+            else:
+                print("error")  
+    else:
+        print("error")
 
     context["form"] = form
     context["hora"] = hora
@@ -96,7 +103,7 @@ def cancelar_page(request):
 
         context["citas"] = citas
     else:
-        pass
+        print("error")
 
     return render(request, 'pages/cancel.html', context)
 
@@ -113,6 +120,8 @@ def confirm_cancelar(request, pk):
         hora = Hora.objects.get(id=cita.hora.id)
         hora.disponible = True
         hora.save()       
+    else:
+        print("error")
 
     return render(request, 'pages/conf_cancel.html', context)
 
@@ -129,6 +138,8 @@ def login_page(request):
             return redirect('home_page')
         else:
             print("error al indentificar")
+    else:
+            print("error")
 
 
     return render(request, 'pages/login.html', context)
@@ -155,6 +166,10 @@ def agregar_hora_page(request):
         form = HoraForm(request.POST)
         if form.is_valid():
             form.save()
+        else:
+            print("error")
+    else:
+            print("error")
 
     return render(request, 'pages/secretaria/agregar_hora.html', context)
 
@@ -188,7 +203,8 @@ def quitar_hora_page(request):
         hora.disponible = False
         hora.save()
         return redirect('secretaria_page')
-
+    else:
+            print("error")
     return render(request, 'pages/secretaria/quitar_hora.html', context)
 
 @login_required(login_url="login_page")
@@ -201,6 +217,10 @@ def agregar_medico_page(request):
         form = MedicoForm(request.POST)
         if form.is_valid():
             form.save()
+        else:
+            print("error")
+    else:
+            print("error")
     return render(request, 'pages/secretaria/agregar_medico.html', context)
 
 @login_required(login_url="login_page")
@@ -213,4 +233,40 @@ def agregar_disponibilidad_page(request):
         form = DisponibilidadForm(request.POST)
         if form.is_valid():
             form.save()
+        else:
+            print("error")
+    else:
+            print("error")
+
     return render(request, 'pages/secretaria/agregar_disponibilidad.html', context)
+
+@login_required(login_url="login_page")
+@usuarios_permitiado(roles_permitidos=['secretaria'])
+def modificar_cita_page(request):
+    context = {}
+    
+    citas = Cita.objects.filter(habilitada=True)
+
+    context["citas"] = citas
+
+    return render(request, 'pages/secretaria/modificar_hora.html', context)
+
+@login_required(login_url="login_page")
+@usuarios_permitiado(roles_permitidos=['secretaria'])
+def update_cita_page(request, pk):
+    context = {}
+    cita = Cita.objects.get(id=pk)
+    form = CitaForm(instance=cita)
+
+    context["form"] = form
+
+    if request.method == 'POST':
+        form = CitaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            print("error")
+    else:
+            print("error")
+
+    return render(request, 'pages/secretaria/update_cita.html', context)

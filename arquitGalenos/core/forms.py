@@ -23,6 +23,10 @@ class HoraForm(forms.ModelForm):
     class Meta:
         model = Hora
         fields = ['medico', 'hora_inicio', 'fecha']
+        widgets = {
+            'fecha': DateInput(),
+            'hora_inicio': TimeInput()
+        }
 
 class MedicoForm(forms.ModelForm):
     class Meta:
@@ -37,3 +41,8 @@ class DisponibilidadForm(forms.ModelForm):
             'hora_inicio': TimeInput(),
             'hora_fin': TimeInput(),
         }
+
+class CitaForm(forms.ModelForm):
+    class Meta:
+        model = Cita
+        fields = '__all__'

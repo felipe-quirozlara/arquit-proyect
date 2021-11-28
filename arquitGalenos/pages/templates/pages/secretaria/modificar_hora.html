@@ -1,0 +1,28 @@
+{%extends 'pages/base.html'%}
+{%load static%}
+{% block content%}
+<main>
+<div>
+    <div class="center-main">
+        <div class="border">
+            <div class="head">
+                <h1>Modificar hora</h1>
+            </div>
+            <div>
+                {% for cita in citas%}
+                    <div class="margin-child-s border">
+                        <h1>Paciente: </h1>
+                        <p>{{cita.paciente.nombre}} {{cita.paciente.p_apellido}} {{cita.paciente.m_apellido}}</p>
+                        <h1>Medico: </h1>
+                        <p>{{cita.hora.medico.nombre}} {{cita.hora.medico.p_apellido}} {{cita.hora.medico.m_apellido}}</p>
+                        <h1>Fecha y Hora</h1>
+                        <p>{{cita.hora.hora_inicio}} {{cita.hora.fecha}}</p>
+                        <a href="{% url 'update_cita_page' cita.id%}">Editar</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock %}

@@ -3,14 +3,31 @@
 {% block content%}
 <main>
 <div>
-    <p>{{cita.hora.medico}}</p>
-        <p>{{cita.hora.fecha}}</p>
-        <p>{{cita.hora.hora_inicio}}</p>
-        <p>{{cita.paciente}}</p>
-        <form method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Cancelar">
-        </form>
+    <div class="center-main">
+        <div class="border">
+            <div class="head">
+                <h1>Confirmar Cancelar Cita </h1>
+            </div>
+            <div>
+                <form method="POST" class="form"> 
+                    {% csrf_token %}
+                    <div class="column margin-child-s">
+                        <h2 class="hora-title">Médico:</h2>
+                        <p class="hora-info">{{cita.hora.medico.nombre}} {{cita.hora.medico.p_apellido}} {{cita.hora.medico.m_apellido}}</p>
+                        <h2 class="hora-title">Fecha:</h2>
+                        <p class="hora-info">{{cita.hora.fecha}}</p>
+                        <h2 class="hora-title">Hora:</h2>
+                        <p class="hora-info">{{cita.hora.hora_inicio}}</p>
+                        <h2 class="hora-title">Paciente:</h2>
+                        <p class="hora-info">{{cita.paciente}}</p>
+                    </div>
+                    <div class="center">
+                        <input type="submit" value="Confirmar" class="btn-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </main>
 {% endblock %}

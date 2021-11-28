@@ -30,6 +30,9 @@ urlpatterns = [
     path('secretaria/agregar/disponibilidad', agregar_disponibilidad_page, name="agregar_disponibilidad_page" ),
 
 
+    path('secretaria/modificar/citas', modificar_cita_page, name="modificar_cita_page" ),
+    path('secretaria/modificar/cita/<str:pk>', update_cita_page, name="update_cita_page" ),
+
 
     path('secretaria/quitar/hora', quitar_hora_page, name="quitar_hora_page" ),
 

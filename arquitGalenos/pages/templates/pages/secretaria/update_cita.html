@@ -3,22 +3,21 @@
 {% block content%}
 <main>
 <div>
-    
     <div class="center-main">
         <div class="border">
             <div class="head">
-                <h1>Agregar Hora </h1>
+                <h1>Modificar hora</h1>
             </div>
             <div>
-                <form method="POST" class="form"> 
+                <form method="" class="form">
                     {% csrf_token %}
                     <div class="column margin-child-s">
-                        <label class="hora-info" for="{{form.medico.label}}">Médico</label>
-                        {{form.medico}}
-                        <label class="hora-info" for="{{form.hora_inicio.label}}">Hora</label>
-                        {{form.hora_inicio}}
-                        <label class="hora-info" for="{{form.fecha.label}}">Fecha</label>
-                        {{form.fecha}}
+                        <label class="hora-info" for="{{form.paciente.label}}">Paciente</label>
+                        {{form.paciente}}
+                        <label class="hora-info" for="{{form.hora.label}}">Hora</label>
+                        {{form.hora}}
+                        <label class="hora-info" for="{{form.habilitada.label}}">Habilitada</label>
+                        {{form.habilitada}}
                     </div>
                     <div class="center">
                         <input type="submit" value="Confirmar" class="btn-submit">
